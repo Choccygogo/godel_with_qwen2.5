@@ -1,0 +1,135 @@
+[
+    {
+        "name": "mathd_algebra_182",
+        "code": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n/-- Expand the following expression: $7(3y+2)$ Show that it is 21y+14.-/\ntheorem mathd_algebra_182 (y : \u2102) : 7 * (3 * y + 2) = 21 * y + 14 := by\n  rulexpand\n  ripideruleextracts\n  apply mathlib.pipeline.clean\n\ntheorem mathd_algebra_377 (m : \u211d) (hyp : 7 * (3 * (x + 2)) = 21 * (x + 4)) :\n  (1 + 2m) * (3 + x) = 25 + 6m + 14x :=\nmathd_algebra_182 (liftNat (m + 1) (3 + m)) := rfl\n\ntheorem mathd_algebra_432 (x : \u2102) (heta : 12 * x = 3) :\n  10x + (4 * y - 4) * (y - 1) = x + 4 * y + 8 := mathd_algebra_182 (liftNat (x - 1)) :=\nrulrelextends\n\n@[simps_top]\ntheorem hoge (n : \u2115) : real_of_nat (sqrt (4 * n - 1)) \u2264 sqrt (2 * n) := show real_of_nat (sqrt (4 * n - 1)) \u2264 sqrt (2 * n)\n  by\n  ext\n  {\n    have: 4 * 2 = 8 * 2 / 4 \u2260 1 / 2,\n    contradiction\n  }\n\ntheorem higi (q : \u211d) (p : \u211d) : if q = 0, then (p * 2) / q = p,\n  (if p = 0, then 0 * 2 / q, by simp only [gcd_sym, gcd_left, gcd_right]) :=\nif p = 0, (0 * 2 / q), by simp\n\ntheorem le1 (n : \u2115) (a : \u2115) (h : a < n) : 2 < a \u21d2 a + 2 < n := begin induction a with a h n {wft }, rw [\u2190 lens_eq_of_lt] {wft } show wft := n + 1, by simp,\n  rw [\u2190 lens_eq_of_lt, lens_set_subset_of_lt h, lens_eq_of_lt, lens_set_subset_of_gt, equal_sub},\nend\n\ntheorem le2 (n : \u2115) (a : \u2115) (h : a > n) : 1 < a \u21d2 n < a + 1 := begin induction a with a h n {wft }, rw [\u2190 lens_eq_of_gt] {wft } show wft := n, by simp, by simp only [le1].",
+        "compilation_result": {
+            "sorries": [],
+            "tactics": [],
+            "errors": [
+                {
+                    "severity": "error",
+                    "pos": {
+                        "line": 6,
+                        "column": 5
+                    },
+                    "endPos": {
+                        "line": 6,
+                        "column": 17
+                    },
+                    "data": "unknown namespace 'BigOperators'"
+                },
+                {
+                    "severity": "error",
+                    "pos": {
+                        "line": 9,
+                        "column": 37
+                    },
+                    "endPos": {
+                        "line": 9,
+                        "column": 39
+                    },
+                    "data": "unexpected token '*'; expected ':=', 'where' or '|'"
+                },
+                {
+                    "severity": "error",
+                    "pos": {
+                        "line": 9,
+                        "column": 36
+                    },
+                    "endPos": {
+                        "line": 9,
+                        "column": 37
+                    },
+                    "data": "unknown constant 'OfNat'"
+                },
+                {
+                    "severity": "error",
+                    "pos": {
+                        "line": 14,
+                        "column": 42
+                    },
+                    "endPos": {
+                        "line": 14,
+                        "column": 44
+                    },
+                    "data": "unexpected token '*'; expected ')'"
+                },
+                {
+                    "severity": "error",
+                    "pos": {
+                        "line": 18,
+                        "column": 44
+                    },
+                    "endPos": {
+                        "line": 18,
+                        "column": 46
+                    },
+                    "data": "unexpected token '*'; expected ')'"
+                },
+                {
+                    "severity": "error",
+                    "pos": {
+                        "line": 23,
+                        "column": 43
+                    },
+                    "endPos": {
+                        "line": 23,
+                        "column": 45
+                    },
+                    "data": "unexpected token '*'; expected ')', ',' or ':'"
+                },
+                {
+                    "severity": "error",
+                    "pos": {
+                        "line": 31,
+                        "column": 30
+                    },
+                    "endPos": {
+                        "line": 31,
+                        "column": 33
+                    },
+                    "data": "unexpected token 'if'; expected term"
+                },
+                {
+                    "severity": "error",
+                    "pos": {
+                        "line": 35,
+                        "column": 35
+                    },
+                    "endPos": null,
+                    "data": "expected token"
+                },
+                {
+                    "severity": "error",
+                    "pos": {
+                        "line": 37,
+                        "column": 0
+                    },
+                    "endPos": {
+                        "line": 37,
+                        "column": 3
+                    },
+                    "data": "invalid 'end', insufficient scopes"
+                },
+                {
+                    "severity": "error",
+                    "pos": {
+                        "line": 39,
+                        "column": 35
+                    },
+                    "endPos": null,
+                    "data": "expected token"
+                }
+            ],
+            "warnings": [],
+            "infos": [],
+            "system_messages": "",
+            "system_errors": null,
+            "ast": {},
+            "verified_code": "import Mathlib\nimport Aesop\n\nset_option maxHeartbeats 0\n\nopen BigOperators Real Nat Topology Rat\n\n/-- Expand the following expression: $7(3y+2)$ Show that it is 21y+14.-/\ntheorem mathd_algebra_182 (y : \u2102) : 7 * (3 * y + 2) = 21 * y + 14 := by\n  rulexpand\n  ripideruleextracts\n  apply mathlib.pipeline.clean\n\ntheorem mathd_algebra_377 (m : \u211d) (hyp : 7 * (3 * (x + 2)) = 21 * (x + 4)) :\n  (1 + 2m) * (3 + x) = 25 + 6m + 14x :=\nmathd_algebra_182 (liftNat (m + 1) (3 + m)) := rfl\n\ntheorem mathd_algebra_432 (x : \u2102) (heta : 12 * x = 3) :\n  10x + (4 * y - 4) * (y - 1) = x + 4 * y + 8 := mathd_algebra_182 (liftNat (x - 1)) :=\nrulrelextends\n\n@[simps_top]\ntheorem hoge (n : \u2115) : real_of_nat (sqrt (4 * n - 1)) \u2264 sqrt (2 * n) := show real_of_nat (sqrt (4 * n - 1)) \u2264 sqrt (2 * n)\n  by\n  ext\n  {\n    have: 4 * 2 = 8 * 2 / 4 \u2260 1 / 2,\n    contradiction\n  }\n\ntheorem higi (q : \u211d) (p : \u211d) : if q = 0, then (p * 2) / q = p,\n  (if p = 0, then 0 * 2 / q, by simp only [gcd_sym, gcd_left, gcd_right]) :=\nif p = 0, (0 * 2 / q), by simp\n\ntheorem le1 (n : \u2115) (a : \u2115) (h : a < n) : 2 < a \u21d2 a + 2 < n := begin induction a with a h n {wft }, rw [\u2190 lens_eq_of_lt] {wft } show wft := n + 1, by simp,\n  rw [\u2190 lens_eq_of_lt, lens_set_subset_of_lt h, lens_eq_of_lt, lens_set_subset_of_gt, equal_sub},\nend\n\ntheorem le2 (n : \u2115) (a : \u2115) (h : a > n) : 1 < a \u21d2 n < a + 1 := begin induction a with a h n {wft }, rw [\u2190 lens_eq_of_gt] {wft } show wft := n, by simp, by simp only [le1].",
+            "pass": false,
+            "complete": false,
+            "verify_time": 2.3934710025787354
+        }
+    }
+]
